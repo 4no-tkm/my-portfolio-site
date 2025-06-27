@@ -1,0 +1,30 @@
+# Rails specific ignores
+/api/.bundle
+/api/db/*.sqlite3
+/api/db/*.sqlite3-journal
+/api/log/*.log
+/api/tmp/
+/api/public/assets
+/api/.byebug_history
+/api/.foreman
+/api/coverage/
+/api/*.gem
+/api/spec/tmp
+/api/.spring.watch
+/api/config/master.key # DO NOT commit this in production environment
+
+# React/Node specific ignores
+/frontend/node_modules
+/frontend/dist
+/frontend/.env.local # Environment variables
+/frontend/.vite/
+
+# OS generated files
+.DS_Store
+.idea
+.vscode/* # VS Code settings for this project (optional, can be committed if desired)
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.env # Common environment variables

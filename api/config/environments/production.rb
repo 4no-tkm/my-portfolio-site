@@ -87,4 +87,18 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+
+  # Configure Action Mailer for production (using Mailjet)
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'in-v3.mailjet.com', # Mailjet SMTPサーバー
+    port:                 587,                 # Mailjet SMTPポート
+    user_name:            ENV['MAILJET_API_KEY'],      # Mailjet API Key (環境変数)
+    password:             ENV['MAILJET_SECRET_KEY'],   # Mailjet Secret Key (環境変数)
+    authentication:       'plain',
+    enable_starttls_auto: true
+  }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false # 本番ではエラーを上げない
+  config.action_mailer.default_url_options = { host: 'your-portfolio-domain.com' } # ポートフォリオのドメイン
 end

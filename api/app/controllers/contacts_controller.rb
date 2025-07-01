@@ -3,7 +3,9 @@ class ContactsController < ApplicationController
         @contact = Contact.new(contact_params)
 
         if @contact.save
-            render json: { message: "お問い合わせありがとうございます"}, status: :created
+            ContactMailer.contact_email(@contact).deliver_now
+            
+            render json: { message: "Thank you for your inquiry."}, status: :created
         else
             render json: @contact.errors, status: :unprocessable_entity
         end

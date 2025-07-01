@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>We received a new inquiry from a portfolio site!</h1>
+    <p>
+      <strong>Name:</strong> <%= @contact.name %>
+    </p>
+    <p>
+      <strong>e-mail:</strong> <%= @contact.email %>
+    </p>
+    <p>
+      <strong>Subject:</strong> <%= @contact.subject %>
+    </p>
+    <p>
+      <strong>Message:</strong><br>
+      <%= simple_format(@contact.message) %>
+    </p>
+    <p>
+      This email was automatically sent from the portfolio site's contact form.
+    </p>
+  </body>
+</html>
